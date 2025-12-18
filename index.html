@@ -10,29 +10,6 @@
 </body>
 </html>
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Rampa Lugau Picnic Spot</title>
-</head>
-<body>
-  <h1>Rampalugau Picnic Spot, Boating & Tourism</h1>
-  <p>Mahanadi river par boating, fishing aur picnic ki basic jankari yahan milegi.</p>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Rampa Lugau Picnic Spot</title>
-</head>
-<body>
-  <h1>Rampalugau Picnic Spot, Boating & Tourism</h1>
-  <p>Mahanadi river par boating, fishing aur picnic ki basic jankari yahan milegi.</p>
-</body>
-</html>
-<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -58,7 +35,45 @@
         <a href="https://photos.app.goo.gl/kPFRzsnykZpprHtG8" target="_blank" class="gallery-btn">🖼️ View All Photos</a>
         <p><em>Suakani Island, Jagannath Temple, Boat Rides</em></p>
     </div>
+/* Modal background */
+.modal {
+  display: none;           /* hidden by default */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
 
+/* Modal box */
+.modal-content {
+  margin: 40px auto;
+  max-width: 90%;
+  background: #000;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Images inside modal */
+.modal-content img {
+  width: 100%;
+  max-width: 400px;
+  margin: 5px 0;
+  border-radius: 6px;
+}
+
+/* Close button (X) */
+.close {
+  color: #fff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
     <p style="background:#fff3cd;color:#d48806;padding:10px;border-radius:10px;">
         💥 Online booking par sabhi trips par <strong>20% OFF</strong> (advance confirm WhatsApp/Call).
     </p>
@@ -73,6 +88,21 @@
         <div class="rate-item">
             <h3>🛕 Jagannath Temple</h3>
             <p><strong>₹800</strong> (under 10) | +₹100/head</p>
+        <!-- Jagannath Temple Card -->
+<div class="card" onclick="openTempleModal()">
+  🛕 Jagannath Temple
+  <br>
+  ₹800 (under 10) | +₹100/head
+</div>
+
+<!-- Temple Modal (hidden by default) -->
+<div id="templeModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeTempleModal()">&times;</span>
+    <img src="images/jagannath1.jpg" alt="Jagannath Temple" />
+    <img src="images/jagannath2.jpg" alt="Jagannath Temple" />
+  </div>
+</div>
         </div>
         <div class="rate-item">
             <h3>🏝️ Suakani Island</h3>
@@ -98,4 +128,21 @@
         <p>📍 Rampalugau, Jharsuguda | 9348272771 | Daily 6AM-5PM<br>Krishna Bless 🙏</p>
     </footer>
 </body>
-                                                </html>
+        <script>
+  const templeModal = document.getElementById('templeModal');
+
+  function openTempleModal() {
+    templeModal.style.display = 'block';
+  }
+
+  function closeTempleModal() {
+    templeModal.style.display = 'none';
+  }
+
+  // background pe click karne se band ho
+  window.onclick = function(event) {
+    if (event.target === templeModal) {
+      templeModal.style.display = 'none';
+    }
+  }
+</script>                                        </html>
