@@ -52,19 +52,40 @@
             <p><strong>₹800</strong> (under 10) | +₹100/head</p>
         <!-- Jagannath Temple Card -->
 <div class="card" onclick="openTempleModal()">
-  🛕 Jagannath Temple
-  <br>
-  ₹800 (under 10) | +₹100/head
-</div>
+  class Package {
+  final String title;
+  final String price;
+  final String image; // assets/jagannath.jpg
 
-<!-- Temple Modal (hidden by default) -->
-<div id="templeModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeTempleModal()">&times;</span>
-    <img src="images/jagannath1.jpg" alt="Jagannath Temple" />
-    <img src="images/jagannath2.jpg" alt="Jagannath Temple" />
-  </div>
-</div>
+  Package({
+    required this.title,
+    required this.price,
+    required this.image,
+  });
+}
+
+final packages = [
+  Package(
+    title: 'Jagannath Temple',
+    price: '₹800 (under 10) | +₹100/head',
+    image: 'assets/jagannath.jpg',
+  ),
+  Package(
+    title: 'Suakani Island',
+    price: '₹1500 (under 10) | +₹150/head',
+    image: 'assets/suakani_island.jpg',
+  ),
+  Package(
+    title: 'Suakani Round',
+    price: '₹2500 (under 10) | +₹200/head',
+    image: 'assets/suakani_round.jpg',
+  ),
+  Package(
+    title: 'Barapahad',
+    price: '₹5000 Booking',
+    image: 'assets/barapahad.jpg',
+  ),
+];
         </div>
         <div class="rate-item">
             <h3>🏝️ Suakani Island</h3>
