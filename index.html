@@ -52,41 +52,111 @@
             <p><strong>₹800</strong> (under 10) | +₹100/head</p>
         <!-- Jagannath Temple Card -->
 <div class="card" onclick="openTempleModal()">
-  class Package {
-  final String title;
-  final String price;
-  final String image; // assets/jagannath.jpg
+  class TempleRateScreen extends StatelessWidget {
+  const TempleRateScreen({super.key});
 
-  Package({
-    required this.title,
-    required this.price,
-    required this.image,
-  });
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Temple Packages')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => TempleDetailScreen(package: jagannathPackage),
+                ),
+              );
+            },
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Jagannath Temple',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text('₹800 (under 10) | +₹100/head'),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          // yahan baaki Suakani Island, Round, Barapahad ke cards add kar sakte ho
+        ],
+      ),
+    );
+  }
 }
+class TempleDetailScreen extends StatelessWidget {
+  final TemplePackage package;
 
-final packages = [
-  Package(
-    title: 'Jagannath Temple',
-    price: '₹800 (under 10) | +₹100/head',
-    image: 'assets/jagannath.jpg',
-  ),
-  Package(
-    title: 'Suakani Island',
-    price: '₹1500 (under 10) | +₹150/head',
-    image: 'assets/suakani_island.jpg',
-  ),
-  Package(
-    title: 'Suakani Round',
-    price: '₹2500 (under 10) | +₹200/head',
-    image: 'assets/suakani_round.jpg',
-  ),
-  Package(
-    title: 'Barapahad',
-    price: '₹5000 Booking',
-    image: 'assets/barapahad.jpg',
-  ),
-];
-        </div>
+  const TempleDetailScreen({super.key, required this.package});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(package.title)),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Photo
+            AspectRatio(
+              aspectRatio: 3 / 4, // need ke hisab se change karo
+              child: Image.asset(
+                package.image,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // Rate chart
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Rate Chart',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    package.price,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(height: 16),
+                  // yahan aur details add kar sakte ho
+                  const Text(
+                    'Note: Under 10 saal ke liye ₹800 package, '
+                    'extra head ke liye ₹100.',
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}   
+</div>
         <div class="rate-item">
             <h3>🏝️ Suakani Island</h3>
             <p><strong>₹1500</strong> (under 10) | +₹150/head</p>
@@ -112,7 +182,8 @@ final packages = [
     </footer>
 </body>
         <script>
-  const templeModal = document.getElementById('templeModal');
+  const templeModal = document.g
+    etElementById('templeModal');
 
   function openTempleModal() {
     templeModal.style.display = 'block';
